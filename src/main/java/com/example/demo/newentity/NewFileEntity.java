@@ -1,5 +1,9 @@
 public class NewEntity{
     @id
     private long id;
-    @notblank(message="should notr contain spaces")
+    private String name;
+     @notblank(message="No blank allowed");
+     @email(message="invalid format");
+     private String email;
+     
 }
