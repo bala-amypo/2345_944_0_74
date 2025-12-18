@@ -30,17 +30,12 @@ Studentservice src;
     public Studententity getIdval(@PathVariable int id){
         return src.id(id);
     }
-    @PutMapping("/update/{id}")
-public String update(@PathVariable Long id, @RequestBody Student newStudent) {
-
-    Optional<Student> student = studentService.getOneStudent(id);
-
-    if (student.isPresent()) {
-        newStudent.setId(id);
-        studentService.insertStudent(newStudent);
-        return "Updated Success";
+    @PutMapping("/updatedata/{id}")
+    public Studententity update(@PathVariable int id,@RequestBody Studententity st){
+        return src.updateStudent(id,st);
     }
-
-    return "Id not found";
-}
+    @DeleteMapping("/delete/{id}")
+    public Studententity deleteStudent(@PathVariable int id){
+        return src.deleteStudent(id);
+    }
 }
